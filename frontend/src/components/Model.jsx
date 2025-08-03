@@ -1,21 +1,28 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import {
-  OrbitControls,
-  useGLTF,
-  useAnimations,
-  Text,
-  Html,
-} from '@react-three/drei';
+import { OrbitControls, useGLTF, useAnimations, Html } from '@react-three/drei';
 
 const Model = () => {
   const { scene, animations } = useGLTF('/smol_.glb');
   const modelRef = useRef();
   const { actions } = useAnimations(animations, modelRef);
 
-  React.useEffect(() => {
-    if (actions) {
-      actions[Object.keys(actions)[0]].play();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // mobile breakpoint
+    };
+    handleResize(); // on mount
+    window.addEventListener('resize', handleResize); // on resize
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (actions && Object.keys(actions).length > 0) {
+      const firstAction = actions[Object.keys(actions)[0]];
+      firstAction?.play();
     }
   }, [actions]);
 
@@ -29,12 +36,11 @@ const Model = () => {
     <primitive
       ref={modelRef}
       object={scene}
-      scale={8.8}
-      position={[0, -12, 0]}
+      scale={isMobile ? 4 : 8.8}
+      position={isMobile ? [0, -6, 0] : [0, -12, 0]}
     />
   );
 };
-
 
 const ModelWrapper = () => {
   return (
@@ -78,13 +84,13 @@ const ModelWrapper = () => {
         <Suspense
           fallback={
             <Html>
-              <div>Loading model...</div>
+              <div style={{ color: 'white' }}>Loading model...</div>
             </Html>
           }
         >
           <Model />
         </Suspense>
-        <OrbitControls enablePan={true}  />
+        <OrbitControls enablePan={true} />
       </Canvas>
     </>
   );
