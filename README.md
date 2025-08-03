@@ -118,7 +118,7 @@ Make sure to create an app in your [Auth0 dashboard](https://auth0.com/) and con
 
 ## 🌐 Live URL (if deployed)
 
-[https://your-live-url.com](https://your-live-url.com)
+[https://your-live-url.com](https://za-vendor.vercel.app)
 
 ---
 
