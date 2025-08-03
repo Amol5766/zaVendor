@@ -19,9 +19,9 @@ app.get('/',(req,res)=>{
     res.json('Vendor Backend Running')
 });
 
-app.listen(PORT, (PORT, (err) => {
+app.listen(PORT, () => {
     if(err) throw err;
-    console.log(`server running on port ${PORT}`)
+    console.log(`Server running on ${PORT}`}));
 
-}))
+
 
