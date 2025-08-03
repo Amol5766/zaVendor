@@ -6,6 +6,7 @@ import arrow from '../assets/turn-right-arrow-svgrepo-com.svg';
 
 const AddVendor = () => {
   const { user } = useAuth0();
+  console.log(user)
   const post = import.meta.env.VITE_POST;
 
   const [vendor, setvendor] = useState({
@@ -184,3 +185,4 @@ const AddVendor = () => {
 };
 
 export default AddVendor;
+
