@@ -17,7 +17,7 @@ const Landing = () => {
     <>
       <ModelWrapper />
 
-      {/* Navigation */}
+
       <nav className="flex flex-col flex-row items-center justify-between px-4 md:px-8 py-4 absolute top-0 w-full z-10">
         <div className="flex items-center gap-4 h-16 md:h-20 w-auto bg-[#ffe9e91f] mb-4 md:mb-0">
           <img
@@ -46,7 +46,7 @@ const Landing = () => {
         </div>
       </nav>
 
-      {/* Landing Content */}
+
       <div className="min-h-screen flex items-center justify-center bg-transparent relative px-4 py-32 md:py-20">
         <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6 sm:p-8 w-full max-w-xl text-center">
           <h1 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-4 text-stroke-black">
