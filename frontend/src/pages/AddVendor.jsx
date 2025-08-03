@@ -47,7 +47,7 @@ const AddVendor = () => {
     <div className="bg-gray-50 dark:bg-black min-h-screen">
       <div className="flex flex-col items-center text-center px-4 sm:px-6 md:px-12 lg:px-24">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mt-8 underline decoration-wavy decoration-2">
-          {`Welcome to zaVendor, ${user?.given_name}!`}
+          {`Welcome to zaVendor, ${user ? user?.given_name : ''}!`}
         </h1>
 
         <img
@@ -58,12 +58,13 @@ const AddVendor = () => {
 
         <div className="relative w-full flex flex-col items-center mt-20 sm:mt-24 mb-12">
           <p className="text-base sm:text-xl font-bold text-gray-800 dark:text-white px-4 max-w-md">
-            You can enlist Vendor's over here {`${user?.given_name}!`}
+            You can enlist Vendor's over here{' '}
+            {`${user ? user?.given_name : ''}!`}
           </p>
           <img
             src={arrow}
             alt="arrow"
-            className="hidden sm:block rotate-12 object-contain h-60 w-40 absolute -left-20 -bottom-10 z-10"
+            className="hidden sm:block rotate-18 object-contain scale-[140%]  h-60 w-40 absolute left-80 -bottom-32 z-10"
           />
         </div>
       </div>
