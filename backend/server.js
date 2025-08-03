@@ -16,10 +16,11 @@ app.use(express.json())
 app.use('/api',Routing);
 
 app.get('/',(req,res)=>{
-    res.send('Vendor Application')
+    res.json('Vendor Application')
 });
 
 app.listen(PORT, (PORT, (err) => {
     if(err) throw err;
     console.log(`server running on port ${PORT}`)
+
 }))
