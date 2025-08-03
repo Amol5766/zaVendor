@@ -16,7 +16,7 @@ app.use(express.json())
 app.use('/api',Routing);
 
 app.get('/',(req,res)=>{
-    res.json('Vendor Application')
+    res.json('Vendor Backend Running')
 });
 
 app.listen(PORT, (PORT, (err) => {
@@ -24,3 +24,4 @@ app.listen(PORT, (PORT, (err) => {
     console.log(`server running on port ${PORT}`)
 
 }))
+
