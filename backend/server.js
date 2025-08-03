@@ -20,8 +20,10 @@ app.get('/',(req,res)=>{
 });
 
 app.listen(PORT, () => {
-    if(err) throw err;
-    console.log(`Server running on ${PORT}`}));
+  console.log(`✅ Server running on port ${PORT}`);
+});
+
+
 
 
 
