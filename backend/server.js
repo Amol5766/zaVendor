@@ -5,7 +5,7 @@ require('dotenv').config();
 const{connectDb}= require('./db')
 const Routing = require('./router/venRouter')
 const cors = require('cors')
-let PORT = process.env.PORT;
+const PORT = process.env.PORT || 5003;
 
 connectDb();
 app.use(cors())
@@ -22,6 +22,7 @@ app.get('/',(req,res)=>{
 app.listen(PORT, () => {
     if(err) throw err;
     console.log(`Server running on ${PORT}`}));
+
 
 
 
